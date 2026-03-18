@@ -50,6 +50,11 @@ docker run -d --name n8n -p 5678:5678 \
   -e DB_POSTGRESDB_PASSWORD=$DB_PASSWORD \
   -e DB_POSTGRESDB_SSL_ENABLED=true \
   -e DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED=false \
+  -e N8N_HOST=n8n-demo-oz.site \
+  -e N8N_PROTOCOL=https \
+  -e N8N_PORT=5678 \
+  -e N8N_EDITOR_BASE_URL=https://n8n-demo-oz.site \
+  -e WEBHOOK_URL=https://n8n-demo-oz.site/ \
   n8nio/n8n
 EOF
   )
