@@ -28,6 +28,3 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Check n8n service is up
-        run: |
-          curl -I https://n8n-demo-oz.site
