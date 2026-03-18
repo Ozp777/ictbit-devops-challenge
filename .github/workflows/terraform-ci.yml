@@ -6,7 +6,7 @@ on:
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     defaults:
       run:
@@ -28,6 +28,9 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: Call n8n webhook
+        run: curl -fsS https://n8n-demo-oz.site/webhook/ops-check
 
 
 
