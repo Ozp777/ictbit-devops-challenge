@@ -150,6 +150,48 @@ A detailed DNS integration guide is available in:
 DNS_RUNBOOK.md
 ```
 
+Operational Task – n8n Webhook
+
+This project includes an operational task implemented using an n8n webhook.
+
+Overview
+
+An external HTTP request can trigger an automated workflow running inside the infrastructure.
+
+Endpoint
+https://n8n-demo-oz.site/webhook/ops-check
+How it works
+
+A request is sent to the public domain
+
+Route53 resolves the domain to the Application Load Balancer
+
+The ALB forwards the request to an EC2 instance (Auto Scaling Group)
+
+n8n (running in Docker) receives the request via a webhook
+
+A workflow is triggered and processed
+
+A JSON response is returned to the client
+
+Example request
+curl https://n8n-demo-oz.site/webhook/ops-check
+Example response
+{
+  "status": "ok",
+  "message": "n8n webhook working",
+  "project": "ICTBIT"
+}
+Purpose
+
+This demonstrates:
+
+External service triggering
+
+Real-time workflow automation
+
+Full integration across AWS infrastructure (Route53, ALB, ASG, EC2, Docker, n8n)
+
 ---
 
 ## 🚀 Future Improvements
